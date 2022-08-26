@@ -27,6 +27,7 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
+import PhotoGallery from "../components/photo-gallery";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -48,6 +49,7 @@ export const config: TemplateConfig = {
       "slug",
       "geocodedCoordinate",
       "services",
+      "photoGallery"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -130,6 +132,7 @@ const Location: Template<TemplateRenderProps> = ({
     mainPhone,
     geocodedCoordinate,
     services,
+    photoGallery
   } = document;
 
   return (
@@ -165,6 +168,7 @@ const Location: Template<TemplateRenderProps> = ({
               </div>
             </div>
           </div>
+          <div className="section">{photoGallery && <PhotoGallery photoGallery={photoGallery}></PhotoGallery>}</div>
         </div>
       </PageLayout>
     </>

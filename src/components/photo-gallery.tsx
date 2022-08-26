@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Image } from "@yext/pages/components"
 
 type Thumbnail = {
   height: number;
@@ -7,23 +8,24 @@ type Thumbnail = {
 };
 
 type Image = {
-  height?: number;
-  width?: number;
-  url: string;
-  thumbnails?: Thumbnail[];
+  image: {
+    height?: number;
+    width?: number;
+    url: string;
+    thumbnails?: Thumbnail[];
+  }
 };
 
 type PhotoGallery = {
-  photoGallery: Image[];
+  photoGallery: any[];
 };
 
 const PhotoGallery = (props: PhotoGallery) => {
   const { photoGallery } = props;
-
   return (
     <div>
-      {photoGallery.map((image, index) => (
-        <img src={image.url} key={index} />
+      {photoGallery.map((imageData, index) => (
+        <Image image={imageData} key={index} />
       ))}
     </div>
   );
